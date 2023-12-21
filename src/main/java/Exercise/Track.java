@@ -26,7 +26,5 @@ public class Track {
 
             current = current.next;
         }
-
-
     }
 }
