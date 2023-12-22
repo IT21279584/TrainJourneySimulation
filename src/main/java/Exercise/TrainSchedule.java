@@ -26,10 +26,10 @@ public class TrainSchedule {
         if(head == null){
             System.out.println("Train schedules are not available");
         }else{
-            System.out.println("Train schedule are : ");
             do{
                 System.out.println("Train is : " + current.trainName);
-                System.out.println(" " + current.schedule);
+                System.out.println("Schedules ");
+                current.schedule.stream().map(Station::getName).forEach(System.out::println);
                 current = current.next;
 
             }while(current!=head);

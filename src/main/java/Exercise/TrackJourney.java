@@ -9,8 +9,14 @@ public class TrackJourney {
 
     private  double[][] adjacencyMatrix;
 
-    public TrackJourney(double[][] adjacencyMatrix) {
+    private TrainSchedule trainSchedule;
+    private TrainArrivalPriority arrivalPriorityQueue;
+
+    public TrackJourney(double[][] adjacencyMatrix, TrainSchedule trainSchedule,
+                        TrainArrivalPriority arrivalPriorityQueue) {
         this.adjacencyMatrix = adjacencyMatrix;
+        this.trainSchedule = trainSchedule;
+        this.arrivalPriorityQueue = arrivalPriorityQueue;
     }
 
     public List<Station> findShortestPath(Station start, Station destination) {
@@ -81,6 +87,21 @@ public class TrackJourney {
         Collections.reverse(path);
         return path;
     }
+    public void scheduleTrain(String trainName, List<Station> schedule) {
+        trainSchedule.addTrain(trainName, schedule);
+    }
 
+    public void enqueueTrainArrival(String trainName, Station currentStation) {
+        TrainArrival trainArrival = new TrainArrival(trainName, currentStation);
+        arrivalPriorityQueue.enqueue(trainArrival);
+    }
+
+    public TrainArrival dequeueTrainArrival() {
+        return arrivalPriorityQueue.dequeue();
+    }
+
+    public void displayTrainSchedules() {
+        trainSchedule.displayTrains();
+    }
 
 }
