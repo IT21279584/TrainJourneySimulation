@@ -1,11 +1,15 @@
 package Exercise;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class TrackJourney {
+    static Logger logger = LoggerFactory.getLogger(TrackJourney.class);
 
     private  double[][] adjacencyMatrix;
 
@@ -46,7 +50,7 @@ public class TrackJourney {
 
         List<Station> path = reconstructPath(parent, destIndex, start);
         if (path.isEmpty() || path.get(0).getSid().equals(destination.getSid())) {
-            System.out.println("No path exists between the specified stations.");
+            logger.info("No path exists between the specified stations.");
             return Collections.emptyList();
         }
         return path;

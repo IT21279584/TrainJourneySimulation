@@ -34,7 +34,6 @@ public class TrainArrival implements Comparable<TrainArrival>{
     @Override
     public int compareTo(TrainArrival other) {
         //High distance has high priority
-
         return Double.compare(other.currentStation.getDistanceFromStation(), this.currentStation.getDistanceFromStation());
     }
 }
