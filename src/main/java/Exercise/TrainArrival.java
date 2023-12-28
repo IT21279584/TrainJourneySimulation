@@ -6,10 +6,6 @@ public class TrainArrival implements Comparable<TrainArrival>{
     Station  currentStation;
     Station station;
 
-    public TrainArrival(Station station) {
-        this.station = station;
-    }
-
     public TrainArrival(String trainName, Station currentStation) {
         this.trainName = trainName;
         this.currentStation = currentStation;
