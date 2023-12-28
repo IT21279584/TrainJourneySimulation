@@ -23,6 +23,7 @@ class StatisticsCollectorTest {
         String expectedOutput = "\n------ Simulation Statistics ------\n" +
                 "Stations Visited: 1\n" +
                 "Total Boarded Passengers: 0\n" +
+                "Average Boarding Time: N/A (No passengers boarded)\n" +
                 "Passengers at Each Station: {Station 01=0}\n" +
                 "-----------------------------------\n";
         assertEquals(expectedOutput, outContent.toString());
