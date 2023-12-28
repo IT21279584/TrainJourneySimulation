@@ -29,4 +29,12 @@ class StationTest {
 
         assertEquals("Station 01", station.getName());
     }
+
+    @Test
+    void setConnectStation() {
+        Station station = new Station("S01", "Station 01", 200);
+        station.setConnectStation(station);
+
+        assertTrue(station.getConnectStation().add(station));
+    }
 }

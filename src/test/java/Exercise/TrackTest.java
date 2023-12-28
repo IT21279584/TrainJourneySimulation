@@ -20,6 +20,6 @@ class TrackTest {
         track.displayStations();
         System.setOut(System.out);
 
-        assertEquals(null, outContent.toString());
+        assertEquals("", outContent.toString());
     }
 }
