@@ -1,5 +1,6 @@
 package Exercise;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Station {
@@ -12,6 +13,7 @@ public class Station {
         this.sid = sid;
         this.name = name;
         this.distanceFromStation = distanceFromStation;
+        this.connectStation = new ArrayList<>();
 
     }
 
@@ -28,7 +30,7 @@ public class Station {
     }
 
     public void setConnectStation(Station connectStation) {
-//        getConnectStation().add(connectStation);
+        getConnectStation().add(connectStation);
     }
 
     public String getSid() {
@@ -46,7 +48,4 @@ public class Station {
     public List<Station> getConnectStation() {
         return connectStation;
     }
-
-
-    
 }

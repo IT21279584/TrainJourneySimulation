@@ -107,5 +107,4 @@ public class TrackJourney {
     public void displayTrainSchedules() {
         trainSchedule.displayTrains();
     }
-
 }
