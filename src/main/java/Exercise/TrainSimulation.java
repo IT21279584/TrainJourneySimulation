@@ -12,10 +12,10 @@ public class TrainSimulation {
     public static void main(String[] args) {
         double adjMatrix[][] = {
                 {0, 10, 0, 10, 0},
-                {10, 0, 15, 10, 0},
+                {15, 0, 15, 0, 0},
                 {0, 15, 0, 25, 0},
-                {10, 10, 25, 0, 0},
-                {0, 0, 0, 0, 0}
+                {10, 10, 25, 0, 20},
+                {0, 0, 0, 15, 0}
         };
 
         TrainSchedule trainSchedule = new TrainSchedule();
@@ -101,5 +101,7 @@ public class TrainSimulation {
         }
             // Display final statistics
             statisticsCollector.displayStatistics();
+
+        
     }
 }

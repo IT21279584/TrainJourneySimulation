@@ -14,25 +14,26 @@ public class Graph {
         destination.setConnectStation(source);
     }
 
-    public void traverseAndDisplay(Station start){
+    public void traverseAndDisplay(Station start) {
         Set<Station> visited = new HashSet<>();
         Queue<Station> queue = new LinkedList<>();
 
         queue.add(start);
         visited.add(start);
 
-        while(!queue.isEmpty()){
-            Station current  = queue.poll();
-            System.out.println("Current Station is : " + current.getName());
+        while (!queue.isEmpty()) {
+            Station current = queue.poll();
+            System.out.println("Visited Station: " + current.getName());
 
-            for(Station connectedStations : current.getConnectStation()){
-                if(!visited.contains(connectedStations)){
-                    queue.add(connectedStations);
-                    visited.add(connectedStations);
-                    System.out.println("Connected Station is : " + current.getName());
+            for (Station connectedStation : current.getConnectStation()) {
+                if (!visited.contains(connectedStation)) {
+                    queue.add(connectedStation);
+                    visited.add(connectedStation);
                 }
             }
         }
+
         System.out.println();
     }
+
 }
