@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class TrainSimulation {
 //    static Logger logger = LoggerFactory.getLogger(TrainSimulation.class);
@@ -17,13 +18,16 @@ public class TrainSimulation {
                 {10, 10, 25, 0, 0},
                 {0, 0, 0, 0, 0}
         };
+
         TrainSchedule trainSchedule = new TrainSchedule();
         TrainArrivalPriority arrivalPriorityQueue = new TrainArrivalPriority();
         TrackJourney trainJourney = new TrackJourney(adjMatrix, trainSchedule, arrivalPriorityQueue);
 
         // Schedule trains
         trainJourney.scheduleTrain("Express Train", Arrays.asList(new Station("1", "Station 1", 2), new Station("2", "Station 2", 5), new Station("3", "Station 3", 20)));
-        trainJourney.scheduleTrain("Local Train", Arrays.asList(new Station("1", "Station 1", 9), new Station("2", "Station 2", 15)));
+        trainJourney.scheduleTrain("Local Train", Arrays.asList(new Station("1", "Station 1", 9), new Station("2", "Station 24", 15)));
+        trainJourney.scheduleTrain("Local Train", Arrays.asList(new Station("5", "Station 5", 19), new Station("6", "Station 6", 15)));
+
 
         ArrayList<String> stations = new ArrayList<>();
         System.out.println("------Available stations------");
@@ -47,8 +51,10 @@ public class TrainSimulation {
             System.out.println("Shortest path from " + startStation.getName() + " to " + endStation.getName() + ":");
             System.out.println("\n-------Path stations--------");
 
+           // List<String> stationNames = shortestPath.stream().map(Station::getName).collect(Collectors.toList());
             shortestPath.stream().map(Station::getName).forEach(System.out::println);
 
+          //  System.out.println("Station List : " + stationNames);
 
         } else {
             System.out.println("Invalid input. Please enter valid station indices.");
@@ -56,6 +62,8 @@ public class TrainSimulation {
 
         scanner.close();
 
+        Track newTrack = new Track();
+        newTrack.displayStations();
 
         // Display train schedules
         System.out.println("\n------Train Schedules------");
@@ -74,5 +82,43 @@ public class TrainSimulation {
             System.out.println();
         }
 
+     //   Graph stationConnection = initilizeGraph();
+        //Graph stationConnections = new Graph();
+        //stationConnections.addConnection(startStation, endStation);
+        //stationConnections.traverseAndDisplay(startStation);
+
+
+        BoardingQueue boardingQueue = new BoardingQueue();
+
+        boardingQueue.enqueuePassenger(new Passenger("Passenger 01"));
+        boardingQueue.enqueuePassenger(new Passenger("Passenger 02"));
+        boardingQueue.enqueuePassenger(new Passenger("Passenger 03"));
+
+        boardingQueue.dequeuePassenger();
+        boardingQueue.dequeuePassenger();
+        boardingQueue.dequeuePassenger();
+
+        StatisticsCollector statisticsCollector = new StatisticsCollector();
+
+        // Example: Simulating passenger boarding and updating statistics at each station
+        String currentStation = "Station 2";
+
+        statisticsCollector.updateStatistics(boardingQueue, currentStation);
+
+        // Display final statistics
+        statisticsCollector.displayStatistics();
+
+
     }
+
+    private static Graph initilizeGraph() {
+        Graph stationConnection = new Graph();
+        Station startStation = new Station("1", "Station 1" , 15);
+        Station endStation = new Station("2", "Station 2" , 8);
+
+        stationConnection.addConnection(startStation, endStation);
+
+        return stationConnection;
+    }
+
 }

@@ -1,9 +1,12 @@
 package Exercise;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 
 public class TrainSchedule {
-
+    static Logger logger = LoggerFactory.getLogger(TrainSchedule.class);
     public Train head = null;
     public Train tail = null;
 
@@ -24,7 +27,7 @@ public class TrainSchedule {
     public void displayTrains(){
         Train current = head;
         if(head == null){
-            System.out.println("Train schedules are not available");
+            logger.info("Train schedules are not available");
         }else{
             do{
                 System.out.println("Train is : " + current.trainName);

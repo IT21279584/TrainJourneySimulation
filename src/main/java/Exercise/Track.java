@@ -1,8 +1,13 @@
 package Exercise;
 
+import javax.swing.plaf.synth.SynthLookAndFeel;
+
 public class Track {
 
-    private static class Node{
+    Node head = null;
+    Node tail = null;
+
+    public static class Node{
         Station station;
         Node next;
         Node previous;
@@ -12,12 +17,12 @@ public class Track {
         }
     }
 
-    Node head = null;
-    Node tail = null;
+
 
     public void displayStations(){
 
         Node current = head;
+       // System.out.println("Hello, Working"+current);
         while (current != null){
             System.out.println("Station Name" + current.station.getName());
             System.out.println("Station ID" + current.station.getName());
@@ -25,6 +30,7 @@ public class Track {
             System.out.println();
 
             current = current.next;
+           // System.out.println("Hello, Working"+ current);
         }
     }
 }
