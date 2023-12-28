@@ -29,12 +29,10 @@ public class Graph {
                 if(!visited.contains(connectedStations)){
                     queue.add(connectedStations);
                     visited.add(connectedStations);
-                    System.out.println("Queue Station is : " + current.getName());
+                    System.out.println("Connected Station is : " + current.getName());
                 }
             }
         }
         System.out.println();
     }
-
-
 }

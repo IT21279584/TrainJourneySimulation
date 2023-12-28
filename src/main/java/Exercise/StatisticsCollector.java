@@ -26,7 +26,7 @@ public class StatisticsCollector {
         totalBoardedPassengers += passengersAtCurrentStation;
 
         // Update total boarding time (assuming a fixed boarding time for simplicity)
-        totalBoardingTime += passengersAtCurrentStation * 2; // Example: 2 units of time per passenger
+        totalBoardingTime += passengersAtCurrentStation * 2; // 2 units of time per passenger
 
         // Increment stations visited
         stationsVisited++;
@@ -39,7 +39,13 @@ public class StatisticsCollector {
         System.out.println("\n------ Simulation Statistics ------");
         System.out.println("Stations Visited: " + stationsVisited);
         System.out.println("Total Boarded Passengers: " + totalBoardedPassengers);
-       // System.out.println("Average Boarding Time: " + (totalBoardingTime / totalBoardedPassengers) + " units");
+
+        if (totalBoardedPassengers != 0) {
+            System.out.println("Average Boarding Time: " + (totalBoardingTime / totalBoardedPassengers));
+        } else {
+            System.out.println("Average Boarding Time: N/A (No passengers boarded)");
+        }
+
         System.out.println("Passengers at Each Station: " + passengersAtStation);
         System.out.println("-----------------------------------");
     }

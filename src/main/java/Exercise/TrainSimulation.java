@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class TrainSimulation {
-//    static Logger logger = LoggerFactory.getLogger(TrainSimulation.class);
+    static Logger logger = LoggerFactory.getLogger(TrainSimulation.class);
     public static void main(String[] args) {
         double adjMatrix[][] = {
                 {0, 10, 0, 10, 0},
@@ -25,7 +24,7 @@ public class TrainSimulation {
 
         // Schedule trains
         trainJourney.scheduleTrain("Express Train", Arrays.asList(new Station("1", "Station 1", 2), new Station("2", "Station 2", 5), new Station("3", "Station 3", 20)));
-        trainJourney.scheduleTrain("Local Train", Arrays.asList(new Station("1", "Station 1", 9), new Station("2", "Station 24", 15)));
+        trainJourney.scheduleTrain("Local Train", Arrays.asList(new Station("1", "Station 1", 9), new Station("2", "Station 2", 15)));
         trainJourney.scheduleTrain("Local Train", Arrays.asList(new Station("5", "Station 5", 19), new Station("6", "Station 6", 15)));
 
 
@@ -57,7 +56,7 @@ public class TrainSimulation {
           //  System.out.println("Station List : " + stationNames);
 
         } else {
-            System.out.println("Invalid input. Please enter valid station indices.");
+            logger.info("Invalid input. Please enter valid station indices.");
         }
 
         scanner.close();
@@ -82,43 +81,25 @@ public class TrainSimulation {
             System.out.println();
         }
 
-     //   Graph stationConnection = initilizeGraph();
-        //Graph stationConnections = new Graph();
-        //stationConnections.addConnection(startStation, endStation);
-        //stationConnections.traverseAndDisplay(startStation);
-
+        Graph stationConnections = new Graph();
+        stationConnections.addConnection(startStation, endStation);
+        stationConnections.traverseAndDisplay(startStation);
 
         BoardingQueue boardingQueue = new BoardingQueue();
 
-        boardingQueue.enqueuePassenger(new Passenger("Passenger 01"));
-        boardingQueue.enqueuePassenger(new Passenger("Passenger 02"));
-        boardingQueue.enqueuePassenger(new Passenger("Passenger 03"));
-
-        boardingQueue.dequeuePassenger();
-        boardingQueue.dequeuePassenger();
-        boardingQueue.dequeuePassenger();
-
         StatisticsCollector statisticsCollector = new StatisticsCollector();
 
-        // Example: Simulating passenger boarding and updating statistics at each station
-        String currentStation = "Station 2";
+        for(Station station : trainJourney.findShortestPath(startStation, endStation)){
+            // Simulating passenger boarding and updating statistics at each station
+            String currentStation = station.getName();
 
-        statisticsCollector.updateStatistics(boardingQueue, currentStation);
+            statisticsCollector.updateStatistics(boardingQueue, currentStation);
 
-        // Display final statistics
-        statisticsCollector.displayStatistics();
-
-
+            boardingQueue.enqueuePassenger(new Passenger("Passenger 01"));
+            boardingQueue.enqueuePassenger(new Passenger("Passenger 02"));
+            boardingQueue.enqueuePassenger(new Passenger("Passenger 03"));
+        }
+            // Display final statistics
+            statisticsCollector.displayStatistics();
     }
-
-    private static Graph initilizeGraph() {
-        Graph stationConnection = new Graph();
-        Station startStation = new Station("1", "Station 1" , 15);
-        Station endStation = new Station("2", "Station 2" , 8);
-
-        stationConnection.addConnection(startStation, endStation);
-
-        return stationConnection;
-    }
-
 }

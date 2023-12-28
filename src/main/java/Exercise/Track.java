@@ -1,7 +1,5 @@
 package Exercise;
 
-import javax.swing.plaf.synth.SynthLookAndFeel;
-
 public class Track {
 
     Node head = null;
@@ -16,8 +14,6 @@ public class Track {
             this.station = station;
         }
     }
-
-
 
     public void displayStations(){
 
