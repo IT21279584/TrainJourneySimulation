@@ -95,13 +95,13 @@ public class TrainSimulation {
 
             statisticsCollector.updateStatistics(boardingQueue, currentStation);
 
-            boardingQueue.enqueuePassenger(new Passenger("Passenger 01"));
-            boardingQueue.enqueuePassenger(new Passenger("Passenger 02"));
-            boardingQueue.enqueuePassenger(new Passenger("Passenger 03"));
+            for(int i = 1; i <= 3; i++){
+                boardingQueue.enqueuePassenger(new Passenger("Passenger 0" + i));
+            }
         }
             // Display final statistics
             statisticsCollector.displayStatistics();
 
-        
+
     }
 }
