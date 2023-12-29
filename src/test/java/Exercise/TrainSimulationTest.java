@@ -41,6 +41,7 @@ class TrainSimulationTest {
                 "-------Path stations--------\n" +
                 "Station 2\n" +
                 "Station 1\n" +
+                "Station 4\n" +
                 "Station 5\n" +
                 "\n" +
                 "------Train Schedules------\n" +
@@ -65,9 +66,8 @@ class TrainSimulationTest {
                 "Train Name: Local Train\n" +
                 "Current Station: Station 3\n" +
                 "\n" +
-                "Current Station is : Station 2\n" +
-                "Connected Station is : Station 2\n" +
-                "Current Station is : Station 5\n" +
+                "Visited Station: Station 2\n" +
+                "Visited Station: Station 5\n" +
                 "\n" +
                 "\n" +
                 "------ Simulation Statistics ------\n" +
@@ -94,17 +94,27 @@ class TrainSimulationTest {
                 "Stations Visited: 3\n" +
                 "Total Boarded Passengers: 9\n" +
                 "Average Boarding Time: 2\n" +
-                "Passengers at Each Station: {Station 2=0, Station 1=3, Station 5=6}\n" +
+                "Passengers at Each Station: {Station 2=0, Station 1=3, Station 4=6}\n" +
                 "-----------------------------------\n" +
                 "Passenger 01 has joined the boarding queue\n" +
                 "Passenger 02 has joined the boarding queue\n" +
                 "Passenger 03 has joined the boarding queue\n" +
                 "\n" +
                 "------ Simulation Statistics ------\n" +
-                "Stations Visited: 3\n" +
-                "Total Boarded Passengers: 9\n" +
+                "Stations Visited: 4\n" +
+                "Total Boarded Passengers: 18\n" +
                 "Average Boarding Time: 2\n" +
-                "Passengers at Each Station: {Station 2=0, Station 1=3, Station 5=6}\n" +
+                "Passengers at Each Station: {Station 2=0, Station 1=3, Station 4=6, Station 5=9}\n" +
+                "-----------------------------------\n" +
+                "Passenger 01 has joined the boarding queue\n" +
+                "Passenger 02 has joined the boarding queue\n" +
+                "Passenger 03 has joined the boarding queue\n" +
+                "\n" +
+                "------ Simulation Statistics ------\n" +
+                "Stations Visited: 4\n" +
+                "Total Boarded Passengers: 18\n" +
+                "Average Boarding Time: 2\n" +
+                "Passengers at Each Station: {Station 2=0, Station 1=3, Station 4=6, Station 5=9}\n" +
                 "-----------------------------------\n";
         assertEquals(expectOutput, outContent.toString());
     }
