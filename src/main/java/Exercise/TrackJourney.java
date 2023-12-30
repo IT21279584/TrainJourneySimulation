@@ -95,8 +95,8 @@ public class TrackJourney {
         trainSchedule.addTrain(trainName, schedule);
     }
 
-    public void enqueueTrainArrival(String trainName, Station currentStation) {
-        TrainArrival trainArrival = new TrainArrival(trainName, currentStation);
+    public void enqueueTrainArrival(String trainName, String time, Station currentStation) {
+        TrainArrival trainArrival = new TrainArrival(trainName, time, currentStation);
         arrivalPriorityQueue.enqueue(trainArrival);
     }
 

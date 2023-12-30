@@ -3,11 +3,13 @@ package Exercise;
 public class TrainArrival implements Comparable<TrainArrival>{
 
     private String trainName;
+    private String time;
     Station  currentStation;
 
-    public TrainArrival(String trainName, Station currentStation) {
+    public TrainArrival(String trainName, String time, Station currentStation) {
         this.trainName = trainName;
         this.currentStation = currentStation;
+        this.time = time;
     }
 
     public void setTrainName(String trainName) {
@@ -24,6 +26,14 @@ public class TrainArrival implements Comparable<TrainArrival>{
 
     public Station getCurrentStation() {
         return currentStation;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     @Override

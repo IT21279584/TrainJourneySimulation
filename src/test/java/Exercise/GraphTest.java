@@ -30,15 +30,11 @@ class GraphTest {
 
         System.setOut(System.out);
 
-        String expectOutput = "Current Station is : Station 02\n" +
-                "Connected Station is : Station 02\n" +
-                "Connected Station is : Station 02\n" +
-                "Current Station is : Station 01\n" +
-                "Current Station is : Station 03\n" +
-                "Connected Station is : Station 03\n" +
-                "Current Station is : Station 04\n" +
-                "Connected Station is : Station 04\n" +
-                "Current Station is : Station 05\n";
+        String expectOutput = "Visited Station: Station 02\n" +
+                "Visited Station: Station 01\n" +
+                "Visited Station: Station 03\n" +
+                "Visited Station: Station 04\n" +
+                "Visited Station: Station 05\n";
 
         assertEquals(expectOutput + System.lineSeparator(), outContent.toString());
     }

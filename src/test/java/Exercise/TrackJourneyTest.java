@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +21,9 @@ class TrackJourneyTest {
             {0, 0, 0, 0, 0}
     };
     TrainSchedule trainSchedule = new TrainSchedule();
+    LocalDateTime localDateTime = LocalDateTime.now();
+
+
 
     @Test
     void findShortestPath() {
@@ -35,7 +39,7 @@ class TrackJourneyTest {
 
         Station station2 = new Station("2", "Station 02", 200);
         Station station5 = new Station("5", "Station 05", 500);
-        TrainArrival trainArrival1 = new TrainArrival("Express", station2);
+        TrainArrival trainArrival1 = new TrainArrival("Express", String.valueOf(localDateTime), station2);
 
         TrackJourney trackJourney = new TrackJourney(adjMatrix, trainSchedule,trainArrivalPriority);
 
@@ -74,7 +78,7 @@ class TrackJourneyTest {
         Station station1 = new Station("S02", "Station 02", 200);
         TrackJourney trackJourney = new TrackJourney(adjMatrix, trainSchedule,trainArrivalPriority);
 
-        trackJourney.enqueueTrainArrival("Express", station1);
+        trackJourney.enqueueTrainArrival("Express", String.valueOf(localDateTime), station1);
         assertEquals("Express", trackJourney.dequeueTrainArrival().getTrainName());
     }
 

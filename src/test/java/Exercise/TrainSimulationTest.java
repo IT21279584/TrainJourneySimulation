@@ -34,6 +34,13 @@ class TrainSimulationTest {
                 "Station 3\n" +
                 "Station 4\n" +
                 "Station 5\n" +
+                "\n" +
+                "              Station 1       Station 2       Station 3       Station 4       Station 5       \n" +
+                "Station 1       0.0             10.0            0.0             10.0            0.0             \n" +
+                "Station 2       15.0            0.0             15.0            0.0             0.0             \n" +
+                "Station 3       0.0             15.0            0.0             25.0            0.0             \n" +
+                "Station 4       10.0            10.0            25.0            0.0             20.0            \n" +
+                "Station 5       0.0             0.0             0.0             15.0            0.0             \n" +
                 "Enter start station: \n" +
                 "Enter end station: \n" +
                 "Shortest path from Station 2 to Station 5:\n" +
@@ -61,9 +68,11 @@ class TrainSimulationTest {
                 "\n" +
                 "------Train Arrivals------\n" +
                 "Train Name: Express Train\n" +
+                "Arrival Time: 2023-12-30T08:43:02.426280158\n" +
                 "Current Station: Station 2\n" +
                 "\n" +
                 "Train Name: Local Train\n" +
+                "Arrival Time: 2023-12-30T10:43:02.426280158\n" +
                 "Current Station: Station 3\n" +
                 "\n" +
                 "Visited Station: Station 2\n" +
