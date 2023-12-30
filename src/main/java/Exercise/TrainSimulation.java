@@ -103,16 +103,12 @@ public class TrainSimulation {
 
             statisticsCollector.updateStatistics(boardingQueue, currentStation);
 
-            for(int i = 1; i <= 3; i++){
+            for(int i = 1; i <= Constants.PASSENGERS; i++){
                 boardingQueue.enqueuePassenger(new Passenger("Passenger 0" + i));
             }
-
-
         }
             // Display final statistics
             statisticsCollector.displayStatistics();
-
-
     }
 
     private static void printMatrix(double[][] matrix, List<Integer> station) {

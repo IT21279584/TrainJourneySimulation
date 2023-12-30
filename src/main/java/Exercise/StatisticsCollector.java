@@ -26,7 +26,7 @@ public class StatisticsCollector {
         totalBoardedPassengers += passengersAtCurrentStation;
 
         // Update total boarding time (assuming a fixed boarding time for simplicity)
-        totalBoardingTime += passengersAtCurrentStation * 2; // 2 units of time per passenger
+        totalBoardingTime += passengersAtCurrentStation *  Constants.TIME_UNIT; // 2 units of time per passenger
 
         // Increment stations visited
         stationsVisited++;
