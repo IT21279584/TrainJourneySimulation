@@ -7,7 +7,7 @@ public class Station {
     private String sid;
     private String name;
     private double distanceFromStation;
-    private List<Station> connectStation;
+    private static List<Station> connectStation;
 
     public Station(String sid, String name, double distanceFromStation) {
         this.sid = sid;
@@ -29,8 +29,8 @@ public class Station {
         this.distanceFromStation = distanceFromStation;
     }
 
-    public void setConnectStation(Station connectStation) {
-        getConnectStation().add(connectStation);
+    public static void setConnectStation(List<Station> connectStation) {
+        getConnectStation().addAll(connectStation);
     }
 
     public String getSid() {
@@ -45,7 +45,7 @@ public class Station {
         return distanceFromStation;
     }
 
-    public List<Station> getConnectStation() {
+    public static List<Station> getConnectStation() {
         return connectStation;
     }
 }

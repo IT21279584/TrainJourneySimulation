@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,10 +20,9 @@ class GraphTest {
         Station station4 = new Station("S04", "Station 04", 400);
         Station station5 = new Station("S05", "Station 05", 500);
 
-        graph.addConnection(station1, station2);
-        graph.addConnection(station2, station3);
-        graph.addConnection(station3, station4);
-        graph.addConnection(station4, station5);
+        List<Station> stationList = Arrays.asList(station1, station2, station3, station4, station5);
+
+        graph.addConnection(stationList);
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));

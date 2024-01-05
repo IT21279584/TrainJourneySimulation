@@ -9,17 +9,17 @@ public class Graph {
         this.stationConnection = new HashMap<>();
     }
 
-    public void addConnection(Station source, Station destination){
-        source.setConnectStation(destination);
-        destination.setConnectStation(source);
+    public void addConnection(List<Station> connectStations){
+        Station.setConnectStation(connectStations);
     }
 
-    public void traverseAndDisplay(Station start) {
+
+    public void traverseAndDisplay(List<Station> start) {
         Set<Station> visited = new HashSet<>();
         Queue<Station> queue = new LinkedList<>();
 
-        queue.add(start);
-        visited.add(start);
+        queue.addAll(start);
+        visited.addAll(start);
 
         while (!queue.isEmpty()) {
             Station current = queue.poll();
